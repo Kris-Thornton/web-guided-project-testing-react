@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import React from 'react';
 import App from './App';
 
@@ -19,13 +19,13 @@ test('fetches and renders mission data', async () => {
             {mission_name: 'Mission 2', mission_id: 'mission 2'},
         ]
     });
-    // const button = screen.getByRole('button');
-    // fireEvent.click(button);
+    const button = screen.getByRole('button');
+    fireEvent.click(button);
 
 
-    // await wait();
+    await wait();
 
-    // expect(screen.getAllByTestId('mission')).toHaveLength(2);
+    expect(screen.getAllByTestId('mission')).toHaveLength(2);
 })
 
 

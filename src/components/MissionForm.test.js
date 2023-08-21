@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import MissionForm from './MissionForm';
 
 
@@ -24,7 +24,7 @@ test('calls getData when button is pressed', () => {
     const mockGetData = jest.fn(() => {});
     render(<MissionForm getData={mockGetData} />);
     const button = screen.getByRole('button');
-    // fireEvent.click(button);
-    console.log(mockGetData.mock);
-    // expect(mockGetData.mock.calls).toHaveLength(1);
+    fireEvent.click(button);
+    console.log(mockGetData);
+    expect(mockGetData.mock.calls).toHaveLength(1);
 })
